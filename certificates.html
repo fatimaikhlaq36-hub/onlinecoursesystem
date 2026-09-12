@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Certificates | Online Course System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f4f6f9;
+      color: #333;
+    }
+
+    /* HEADER */
+    header {
+      background: #0f172a;
+      color: white;
+      padding: 18px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h2 {
+      font-size: 22px;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 25px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #38bdf8;
+    }
+
+    /* TITLE */
+    .page-title {
+      text-align: center;
+      padding: 40px 20px 10px;
+    }
+
+    .page-title h3 {
+      font-size: 30px;
+      color: #1e3a8a;
+    }
+
+    .page-title p {
+      margin-top: 10px;
+      color: #555;
+    }
+
+    /* CERTIFICATES */
+    .cert-container {
+      padding: 40px 60px 80px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .cert-card {
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      position: relative;
+      transition: transform 0.3s;
+    }
+
+    .cert-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .cert-card h4 {
+      color: #1e3a8a;
+      margin-bottom: 10px;
+    }
+
+    .cert-card p {
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .status {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      color: white;
+    }
+
+    .generated {
+      background: #16a34a;
+    }
+
+    .pending {
+      background: #f97316;
+    }
+
+    .cert-card button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .cert-card button:hover {
+      background: #1e40af;
+    }
+
+    /* MODAL */
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+    }
+
+    .modal-content {
+      background: white;
+      width: 90%;
+      max-width: 650px;
+      padding: 40px;
+      border-radius: 12px;
+      text-align: center;
+      position: relative;
+      animation: zoom 0.5s ease;
+    }
+
+    .modal-content h2 {
+      color: #1e3a8a;
+      margin-bottom: 15px;
+    }
+
+    .modal-content p {
+      margin: 10px 0;
+      font-size: 15px;
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    @keyframes zoom {
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0f172a;
+      color: white;
+      text-align: center;
+      padding: 18px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h2>Certificates</h2>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="courses.html">Courses</a>
+    <a href="enrollments.html">Enroll</a>
+    <a href="progress.html">Progress</a>
+    <a href="certificates.html">Certificates</a>
+    <a href="instructors.html">Instructors</a>
+  </nav>
+</header>
+
+<section class="page-title">
+  <h3>Issued Certificates</h3>
+  <p>View and verify course completion certificates</p>
+</section>
+
+<section class="cert-container"
+id="certificateContainer">
+</section>
+
+<!-- MODAL -->
+<div class="modal" id="certModal">
+  <div class="modal-content">
+    <span class="close" onclick="closeCert()">&times;</span>
+    <h2>Certificate of Completion</h2>
+    <p>This is to certify that</p>
+    <h3 id="studentName"></h3>
+    <p>has successfully completed the course</p>
+    <h3 id="courseName"></h3>
+    <p>Issued by Online Course Enrollment & Certification System</p>
+    <p><strong>Year:</strong> 2026</p>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Online Course Enrollment & Certification System</p>
+</footer>
+
+<script>
+  function openCert(student, course) {
+    document.getElementById("studentName").innerText = student;
+    document.getElementById("courseName").innerText = course;
+    document.getElementById("certModal").style.display = "flex";
+  }
+
+  function closeCert() {
+    document.getElementById("certModal").style.display = "none";
+  }
+</script>
+<script>
+
+fetch("http://127.0.0.1:3000/certificates")
+
+.then(res => res.json())
+
+.then(data => {
+
+    let output = "";
+
+  data.forEach(cert => {
+    output += `
+    <div class="cert-card">
+        <span class="status generated">${cert.Status}</span>
+        <h4>${cert.CourseName}</h4>
+        <p><strong>Student:</strong> ${cert.StudentName}</p>
+        <button onclick="openCert('${cert.StudentName}', '${cert.CourseName}')">
+            View Certificate
+        </button>
+    </div>`;
+});
+
+    document.getElementById("certificateContainer")
+    .innerHTML = output;
+
+});
+
+</script>
+</body>
+</html>

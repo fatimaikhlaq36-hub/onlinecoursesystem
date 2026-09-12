@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Courses | Online Course System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f4f6f9;
+      color: #333;
+    }
+
+    /* HEADER */
+    header {
+      background: #0f172a;
+      color: white;
+      padding: 20px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h2 {
+      font-size: 24px;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 25px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #38bdf8;
+    }
+
+    /* PAGE TITLE */
+    .page-title {
+      text-align: center;
+      padding: 50px 20px 20px;
+    }
+
+    .page-title h3 {
+      font-size: 32px;
+      color: #1e3a8a;
+    }
+
+    .page-title p {
+      margin-top: 10px;
+      color: #555;
+    }
+
+    /* COURSES */
+    .courses {
+      padding: 40px 60px 80px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .course-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .course-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    }
+
+    .course-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .course-content {
+      padding: 20px;
+    }
+
+    .course-content h4 {
+      font-size: 20px;
+      color: #1e3a8a;
+      margin-bottom: 8px;
+    }
+
+    .course-content p {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 15px;
+    }
+
+    .instructor {
+      font-size: 13px;
+      color: #777;
+      margin-bottom: 15px;
+    }
+
+    .course-content button {
+      padding: 10px 20px;
+      border: none;
+      background: #2563eb;
+      color: white;
+      font-size: 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .course-content button:hover {
+      background: #1e40af;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0f172a;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+   .enroll-btn {
+
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+
+}
+
+.enroll-btn:hover {
+
+    background: #1d4ed8;
+    transform: scale(1.05);
+
+} 
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h2>Available Courses</h2>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="courses.html">Courses</a>
+    <a href="enrollments.html">Enroll</a>
+    <a href="progress.html">Progress</a>
+    <a href="certificates.html">Certificates</a>
+    <a href="instructors.html">Instructors</a>
+  </nav>
+</header>
+
+<section class="page-title">
+  <h3>Explore Our Courses</h3>
+  <p>Choose from industry-relevant courses and start learning today</p>
+</section>
+
+<section class="courses">
+
+  <div class="course-card">
+    <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97" alt="Web Development">
+    <div class="course-content">
+      <h4>Web Development</h4>
+      <p>Learn HTML, CSS, JavaScript and build modern responsive websites.</p>
+      <div class="instructor">Instructor: Ali Khan</div>
+      <button onclick="window.location.href='enrollments.html'">Enroll Now</button>
+    </div>
+  </div>
+
+  <div class="course-card">
+    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71" alt="Data Science">
+    <div class="course-content">
+      <h4>Data Science</h4>
+      <p>Analyze data, build models and gain insights using modern tools.</p>
+      <div class="instructor">Instructor: Sara Ahmed</div>
+      <button onclick="window.location.href='enrollments.html'">Enroll Now</button>
+    </div>
+  </div>
+
+  <div class="course-card">
+    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3" alt="Digital Marketing">
+    <div class="course-content">
+      <h4>Digital Marketing</h4>
+      <p>Master SEO, social media marketing, and online branding.</p>
+      <div class="instructor">Instructor: Hassan Raza</div>
+      <button onclick="window.location.href='enrollments.html'">Enroll Now</button>
+    </div>
+  </div>
+  <div class="course-card">
+
+    <img
+    src="https://images.unsplash.com/photo-1677442136019-21780ecad995"
+    alt="AI">
+
+    <div class="course-content">
+        <h3>Artificial Intelligence</h3>
+        <p>
+            Learn AI, machine learning,
+            and intelligent systems.
+        </p>
+        <span>
+            Instructor: Sheeza Fatima
+        </span>
+        <br><br>
+        <button class="enroll-btn"
+        onclick="window.location.href='enrollments.html'">
+            Enroll Now
+        </button>
+    </div>
+</div>
+<div class="course-card">
+    <img
+    src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4"
+    alt="CS">
+    <div class="course-content">
+        <h3>Computer Science</h3>
+        <p>
+            Learn programming, algorithms,
+            and software development.
+        </p>
+        <span>
+            Instructor: Ali Khan
+        </span>
+        <br><br>
+        <button class="enroll-btn"
+        onclick="window.location.href='enrollments.html'">
+            Enroll Now
+        </button>
+    </div>
+</div>
+
+</section>
+
+<footer>
+  <p>© 2026 Online Course Enrollment & Certification System</p>
+</footer>
+
+<script>
+  function enroll(course) {
+    alert("You have successfully enrolled in " + course + "!");
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Enroll | Online Course System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(15,23,42,0.85), rgba(15,23,42,0.85)),
+        url('https://images.unsplash.com/photo-1529070538774-1843cb3265df');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* HEADER */
+    header {
+      background: #0f172a;
+      color: white;
+      padding: 18px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h2 {
+      font-size: 22px;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 25px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #38bdf8;
+    }
+
+    /* FORM CONTAINER */
+    .container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+    }
+
+    .enroll-box {
+      background: white;
+      width: 100%;
+      max-width: 420px;
+      padding: 35px;
+      border-radius: 12px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+      animation: slideUp 1s ease;
+    }
+
+    .enroll-box h3 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #1e3a8a;
+      font-size: 24px;
+    }
+
+    .enroll-box label {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    .enroll-box input,
+    .enroll-box select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 18px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    .enroll-box input:focus,
+    .enroll-box select:focus {
+      border-color: #2563eb;
+      outline: none;
+    }
+
+    .enroll-box button {
+      width: 100%;
+      padding: 12px;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .enroll-box button:hover {
+      background: #1e40af;
+    }
+
+    .success {
+      text-align: center;
+      color: green;
+      margin-top: 15px;
+      display: none;
+      font-size: 14px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0f172a;
+      color: white;
+      text-align: center;
+      padding: 18px;
+      font-size: 14px;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h2>Course Enrollment</h2>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="courses.html">Courses</a>
+    <a href="enrollments.html">Enroll</a>
+    <a href="progress.html">Progress</a>
+    <a href="certificates.html">Certificates</a>
+    <a href="instructors.html">Instructors</a>
+  </nav>
+</header>
+
+<div class="container">
+  <div class="enroll-box">
+    <h3>Student Enrollment Form</h3>
+
+    <form id="enrollmentForm">
+
+    <input
+        type="text"
+        id="studentName"
+        placeholder="Enter Student Name"
+        required
+    >
+
+    <select id="courseName">
+
+        <option>Web Development</option>
+        <option>Data Science</option>
+        <option>Digital marketing</option>
+        <option>AI</option>
+        <option>CS</option>
+    </select>
+
+    <button type="submit">
+        Enroll Now
+    </button>
+
+</form>
+
+    <div class="success" id="successMsg">
+      ✔ Enrollment successful! You can now track your progress.
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Online Course Enrollment & Certification System</p>
+</footer>
+
+<script>
+  // Success message is now handled inside script.js after fetch completes
+</script>
+<script src="script.js"></script>
+</body>
+</html>

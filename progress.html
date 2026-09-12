@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Progress Tracking | Online Course System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #f4f6f9;
+      color: #333;
+    }
+
+    /* HEADER */
+    header {
+      background: #0f172a;
+      color: white;
+      padding: 18px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h2 {
+      font-size: 22px;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 25px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #38bdf8;
+    }
+
+    /* TITLE */
+    .page-title {
+      text-align: center;
+      padding: 40px 20px 10px;
+    }
+
+    .page-title h3 {
+      font-size: 30px;
+      color: #1e3a8a;
+    }
+
+    .page-title p {
+      margin-top: 10px;
+      color: #555;
+    }
+
+    /* TABLE */
+    .table-container {
+      padding: 30px 60px 80px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    th {
+      background: #2563eb;
+      color: white;
+      padding: 15px;
+      font-size: 14px;
+    }
+
+    td {
+      padding: 18px;
+      text-align: center;
+      font-size: 14px;
+      border-bottom: 1px solid #eee;
+    }
+
+    /* PROGRESS BAR */
+    .progress-bar {
+      background: #e5e7eb;
+      border-radius: 20px;
+      height: 18px;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .progress {
+      height: 100%;
+      background: linear-gradient(to right, #38bdf8, #2563eb);
+      width: 0;
+      border-radius: 20px;
+      transition: width 1.5s ease;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0f172a;
+      color: white;
+      text-align: center;
+      padding: 18px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h2>Progress Tracking</h2>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="courses.html">Courses</a>
+    <a href="enrollments.html">Enroll</a>
+    <a href="progress.html">Progress</a>
+    <a href="certificates.html">Certificates</a>
+    <a href="instructors.html">Instructors</a>
+  </nav>
+</header>
+
+<section class="page-title">
+  <h3>Student Course Progress</h3>
+  <p>Monitor learning progress and completion percentage</p>
+</section>
+
+<div class="table-container">
+  <table>
+
+<tr>
+<th>Student</th>
+<th>Course</th>
+<th>Progress</th>
+</tr>
+
+<tbody id="progressData">
+
+</tbody>
+
+</table>
+</div>
+
+<footer>
+  <p>© 2026 Online Course Enrollment & Certification System</p>
+</footer>
+
+<script>
+fetch("http://127.0.0.1:3000/progress")
+.then(res => res.json())
+.then(data => {
+    let output = "";
+    data.forEach(item => {
+        const pct = item.ProgressPercentage || 0;
+        output += `
+        <tr>
+            <td>${item.StudentName}</td>
+            <td>${item.CourseName}</td>
+            <td style="width:200px;">
+                <div class="progress-bar">
+                    <div class="progress" data-progress="${pct}" style="width:0%"></div>
+                </div>
+                <small>${pct}%</small>
+            </td>
+        </tr>`;
+    });
+    document.getElementById("progressData").innerHTML = output;
+
+    // Animate AFTER DOM is updated
+    setTimeout(() => {
+        document.querySelectorAll(".progress").forEach(bar => {
+            bar.style.width = bar.getAttribute("data-progress") + "%";
+        });
+    }, 100);
+});
+</script>
+</body>
+</html>
