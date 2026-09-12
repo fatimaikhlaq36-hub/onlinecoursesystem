@@ -67,3 +67,32 @@ Follow these steps to run the project locally.
 
 ```bash
 git clone https://github.com/fatimaikhlaq36-hub/onlinecoursesystem.git
+### 2. Open the Project Folder
+
+```bash
+cd onlinecoursesystem
+3. Install Dependencies
+npm install
+4. Start the Server
+node server.js
+5. Open the Application
+
+Open the application in your browser using the local server address configured in the project.
+
+Project Purpose
+
+The purpose of this project is to provide an online platform for managing courses, student enrollments, instructors, learning progress, and certificates.
+
+This project was developed to demonstrate web development and backend programming concepts using JavaScript and Node.js.
+
+Future Improvements
+User authentication and login system
+Online course content and video lessons
+Improved instructor dashboard
+Online assessments and quizzes
+Database integration
+Automated certificate generation
+Improved user interface and responsiveness
+Author
+Fatima Ikhlaq
+Student Project — Online Course Enrollment System
