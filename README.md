@@ -58,3 +58,12 @@ OnlineCourseSystem/
 ├── package.json
 ├── package-lock.json
 └── README.md
+
+## How to Run
+
+Follow these steps to run the project locally.
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/fatimaikhlaq36-hub/onlinecoursesystem.git
